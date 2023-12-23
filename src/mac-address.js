@@ -14,11 +14,11 @@ const { NotImplementedError } = require('../extensions/index.js');
  * For 00-1B-63-84-45-E6, the output should be true.
  *
  */
-String.match()
+
 function isMAC48Address(n) {
-  for (let part of n.split('-')) {
-    if (!part.match(/[0-9A-F]/g)) return false
-  }
+  const regEx = /[0-9A-F]{2}\-[0-9A-F]{2}\-[0-9A-F]{2}\-[0-9A-F]{2}\-[0-9A-F]{2}\-[0-9A-F]{2}/g;
+  if (!n.match(regEx)) return false;
+
   return true;
 }
 module.exports = {
